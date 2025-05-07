@@ -1,6 +1,6 @@
 {
   "name": "@aws-sdk/credential-provider-node",
-  "version": "3.799.0",
+  "version": "3.804.0",
   "description": "AWS credential provider that sources credentials from a Node.JS environment. ",
   "engines": {
     "node": ">=18.0.0"
@@ -48,7 +48,7 @@
     "concurrently": "7.0.0",
     "downlevel-dts": "0.10.1",
     "rimraf": "3.0.2",
-    "typescript": "~5.2.2"
+    "typescript": "~5.8.3"
   },
   "types": "./dist-types/index.d.ts",
   "typesVersions": {

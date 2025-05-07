@@ -7810,6 +7810,7 @@
             "ap-southeast-3": {},
             "ap-southeast-4": {},
             "ap-southeast-5": {},
+            "ap-southeast-7": {},
             "ca-central-1": {
               "variants": [
                 {
@@ -7851,6 +7852,7 @@
             "il-central-1": {},
             "me-central-1": {},
             "me-south-1": {},
+            "mx-central-1": {},
             "sa-east-1": {},
             "us-east-1": {
               "variants": [
@@ -34919,6 +34921,12 @@
             "cn-northwest-1": {}
           }
         },
+        "kafkaconnect": {
+          "endpoints": {
+            "cn-north-1": {},
+            "cn-northwest-1": {}
+          }
+        },
         "kendra-ranking": {
           "defaults": {
             "dnsSuffix": "api.amazonwebservices.com.cn",
@@ -42961,6 +42969,11 @@
             "us-iso-west-1": {}
           }
         },
+        "kinesisanalytics": {
+          "endpoints": {
+            "us-iso-east-1": {}
+          }
+        },
         "kms": {
           "endpoints": {
             "ProdFips": {
@@ -44063,6 +44076,11 @@
           "partitionEndpoint": "aws-iso-b-global"
         },
         "kinesis": {
+          "endpoints": {
+            "us-isob-east-1": {}
+          }
+        },
+        "kinesisanalytics": {
           "endpoints": {
             "us-isob-east-1": {}
           }

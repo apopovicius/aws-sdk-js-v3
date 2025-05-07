@@ -1,6 +1,6 @@
 {
   "name": "@aws-sdk/body-checksum-browser",
-  "version": "3.775.0",
+  "version": "3.804.0",
   "scripts": {
     "build": "concurrently 'yarn:build:cjs' 'yarn:build:es' 'yarn:build:types'",
     "build:cjs": "node ../../scripts/compilation/inline body-checksum-browser",
@@ -37,7 +37,7 @@
     "downlevel-dts": "0.10.1",
     "happy-dom": "^15.7.4",
     "rimraf": "3.0.2",
-    "typescript": "~5.2.2"
+    "typescript": "~5.8.3"
   },
   "typesVersions": {
     "<4.0": {

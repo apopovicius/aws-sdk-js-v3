@@ -3,6 +3,36 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.804.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.803.0...v3.804.0) (2025-05-06)
+
+
+### Features
+
+* **client-ec2:** This release adds support for Amazon EBS Provisioned Rate for Volume Initialization, which lets you specify a volume initialization rate to ensure that your EBS volumes are initialized in a predictable amount of time. ([03ae328](https://github.com/aws/aws-sdk-js-v3/commit/03ae3280687f7624e6d141fb9e75bcfc7c7407cd))
+* **client-service-catalog:** ServiceCatalog's APIs (DeleteServiceAction, DisassociateServiceActionFromProvisioningArtifact, AssociateServiceActionWithProvisioningArtifact) now throw InvalidParametersException when IdempotencyToken is invalid. ([bb75d64](https://github.com/aws/aws-sdk-js-v3/commit/bb75d64032ba505bb6838c63aa27c8bfaab84b06))
+* **client-timestream-query:** Add dualstack endpoints support and correct us-gov-west-1 FIPS endpoint. ([9ff8904](https://github.com/aws/aws-sdk-js-v3/commit/9ff8904c644701a85816bf1a7f5da3b5955dff8d))
+* **client-timestream-write:** Add dualstack endpoints support. ([22b258a](https://github.com/aws/aws-sdk-js-v3/commit/22b258a0201cff30088590d3fee7c5a8bc98f60d))
+* **clients:** update client endpoints as of 2025-05-06 ([c5846ed](https://github.com/aws/aws-sdk-js-v3/commit/c5846edd9319db569dc3341781f4feff00357a71))
+
+
+
+
+
+# [3.803.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.802.0...v3.803.0) (2025-05-05)
+
+
+### Features
+
+* **client-datazone:** This release adds a new authorization policy to control the usage of custom AssetType when creating an Asset. Customer can now add new grant(s) of policyType USE_ASSET_TYPE for custom AssetTypes to apply authorization policy to projects members and domain unit owners. ([c23b2fb](https://github.com/aws/aws-sdk-js-v3/commit/c23b2fb7061d6bf1ce534609acb02beafc3604b3))
+* **client-device-farm:** Add an optional parameter to the GetDevicePoolCompatibility API to pass in project information to check device pool compatibility. ([4c93f9a](https://github.com/aws/aws-sdk-js-v3/commit/4c93f9a6bcac773e6322450666f08a0336b4063a))
+* **client-ec2:** This update introduces API operations to manage and create local gateway VIF and VIF groups. It also includes API operations to describe Outpost LAGs and service link VIFs. ([0332513](https://github.com/aws/aws-sdk-js-v3/commit/0332513e4095ec8615fd6a755efee4c3d8d48ce3))
+* **client-mediaconvert:** This release adds an optional sidecar per-frame video quality metrics report and an ALL_PCM option for audio selectors. It also changes the data type for Probe API response fields related to video and audio bitrate from integer to double. ([c8dc773](https://github.com/aws/aws-sdk-js-v3/commit/c8dc773132403141f0a5368e7a90cefb85179f1b))
+* **clients:** update client endpoints as of 2025-05-05 ([ba7c2bf](https://github.com/aws/aws-sdk-js-v3/commit/ba7c2bf2c4c059c4a05ce8d09354739cb63fcede))
+
+
+
+
+
 # [3.802.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.801.0...v3.802.0) (2025-05-02)
 
 
