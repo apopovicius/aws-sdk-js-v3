@@ -1,14 +1,15 @@
-import { describe, it, expect, vi, beforeEach } from 'vitest';
-import { DataMapper } from './DataMapper';
 import type { DynamoDBDocumentClient } from '@aws-sdk/lib-dynamodb';
+import { beforeEach,describe, expect, it, vi } from 'vitest';
+
+import { DataMapper } from './DataMapper';
 
 describe("DynamoDBDataMapper", () => {
   let mockSend: ReturnType<typeof vi.fn>;
   let mockClient: DynamoDBDocumentClient;
 
   class User {
-    id: string = '123';
-    name: string = 'Alice';
+    id = '123';
+    name = 'Alice';
   }
 
   beforeEach(() => {
@@ -18,13 +19,13 @@ describe("DynamoDBDataMapper", () => {
 
   it("should be instantiated with a document client", () => {
     const dummyClient = {} as any;
-    const mapper = new DataMapper({ documentClient: dummyClient });
+    const mapper = new DataMapper({ docClient: dummyClient });
     expect(mapper).toBeInstanceOf(DataMapper);
   });
 
   it('calls DynamoDB put operation with item', async () => {
     mockSend.mockResolvedValueOnce({});
-    const mapper = new DataMapper({ documentClient: mockClient });
+    const mapper = new DataMapper({ docClient: mockClient });
 
     const result = await mapper.put(new User());
 
@@ -37,7 +38,7 @@ describe("DynamoDBDataMapper", () => {
     mockSend.mockResolvedValueOnce({
       Item: { id: '123', name: 'Alice' }
     });
-    const mapper = new DataMapper({ documentClient: mockClient });
+    const mapper = new DataMapper({ docClient: mockClient });
 
     const result = await mapper.get({ id: '123' }, User);
 

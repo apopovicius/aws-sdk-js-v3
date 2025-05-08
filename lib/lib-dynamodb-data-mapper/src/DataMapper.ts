@@ -3,15 +3,15 @@ import type { DynamoDBDocumentClient } from '@aws-sdk/lib-dynamodb';
 import { runGetCommand } from './commands/GetCommand';
 import { runPutCommand } from './commands/PutCommand';
 
-export interface DataMapperOptions {
-  documentClient: DynamoDBDocumentClient;
+export interface DataMapperConfig {
+  docClient: DynamoDBDocumentClient;
 }
 
 export class DataMapper {
   private readonly client: DynamoDBDocumentClient;
 
-  constructor(options: DataMapperOptions) {
-    this.client = options.documentClient;
+  constructor(config: DataMapperConfig) {
+    this.client = config.docClient;
   }
 
   put<T extends object>(item: T): Promise<T> {
