@@ -1,7 +1,6 @@
 import type { DynamoDBDocumentClient } from '@aws-sdk/lib-dynamodb';
 
-import { runGetCommand } from './commands/GetCommand';
-import { runPutCommand } from './commands/PutCommand';
+import { runGetCommand, runPutCommand } from './commands';
 
 export interface DataMapperConfig {
   docClient: DynamoDBDocumentClient;
@@ -14,11 +13,15 @@ export class DataMapper {
     this.client = config.docClient;
   }
 
-  put<T extends object>(item: T): Promise<T> {
-    return runPutCommand({ client: this.client, item });
+  async put<T extends object>(item: T): Promise<T> {
+    const command = new runPutCommand({ Item: item });
+    await this.client.send(command);
+    return item;
   }
 
-  get<T extends object>(key: Partial<T>, model: new () => T): Promise<T> {
-    return runGetCommand({ client: this.client, key, model });
+  async get<T extends object>(key: Partial<T>): Promise<T> {
+    const command = new runGetCommand({ Key: key });
+    const response = await this.client.send(command);
+    return response;
   }
 }
