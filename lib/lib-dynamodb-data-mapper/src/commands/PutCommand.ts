@@ -1,18 +1,14 @@
-import type { DynamoDBDocumentClient } from '@aws-sdk/lib-dynamodb';
 import { PutCommand } from '@aws-sdk/lib-dynamodb';
 
-import { getTableName } from '../baseCommands/getTableName';
+import { BaseCommand } from '../baseCommands/DataMapperCommand';
+import { getTableName } from '../marshaller';
 
-interface PutCommandInput<T> {
-  client: DynamoDBDocumentClient;
-  item: T;
-}
+export class runPutCommand<T extends object> extends BaseCommand<any, any, any> {
+  public readonly clientCommand: PutCommand;
 
-export async function runPutCommand<T extends object>({
-  client,
-  item
-}: PutCommandInput<T>): Promise<T> {
-  const TableName = getTableName(item.constructor);
-  await client.send(new PutCommand({ TableName, Item: item }));
-  return item;
+  constructor(input: { Item: T }) {
+    super();
+    const TableName = getTableName(input.Item);
+    this.clientCommand = new PutCommand({Item: input.Item, TableName});
+  }
 }
