@@ -6,3 +6,6 @@
 *.tgz
 *.log
 package-lock.json
+
+# IDE/editor-specific
+.vscode/
