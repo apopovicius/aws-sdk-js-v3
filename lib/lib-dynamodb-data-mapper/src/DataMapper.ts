@@ -78,8 +78,8 @@ export interface DataMapperConfig {
  * A class that maps between typed application objects and DynamoDB document format.
  * Supports schema-aware transformation and class-based hydration.
  *
- * @typeParam D - The raw DynamoDB document format.
- * @typeParam T - The application-facing data type.
+ * @typeParam D - The schema-aligned plain object used for marshalling to/from DynamoDB.
+ * @typeParam T - The application-facing type (e.g., domain model or custom class).
  *
  * @public
  */
@@ -231,6 +231,6 @@ export class DataMapper<D extends object, T = D> {
   }
 
   private unmarshallOutput(item: Record<string, any>): D {
-    return this.schema ? (DataMarshaller.unmarshallObject(item, this.schema) as D) : (awsUnmarshall(item) as D);
+    return this.schema ? (DataMarshaller.unmarshall(item, this.schema) as D) : (awsUnmarshall(item) as D);
   }
 }
